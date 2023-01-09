@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Carlos Silva',
             'email' => 'caosdp@gmail.com',
+            'profile_photo_path'=>$faker->randomElement(['profile-photos/foto1.jpg','profile-photos/foto2.jpg','profile-photos/foto3.jpg','profile-photos/foto4.jpg','profile-photos/foto5.jpg']),
             'password' => bcrypt('password'),
             'type' => 'doctor'
         ]);
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'password' => bcrypt('password'), //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'profile_photo_path'=>$faker->randomElement(['profile-photos/foto1.jpg','profile-photos/foto2.jpg','profile-photos/foto3.jpg','profile-photos/foto4.jpg','profile-photos/foto5.jpg']),
                 'type' => 'doctor'
                 //'password' => bcrypt('secret'),
             ]);
