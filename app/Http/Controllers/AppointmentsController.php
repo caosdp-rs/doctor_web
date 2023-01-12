@@ -40,6 +40,7 @@ class AppointmentsController extends Controller
         //this controller is to store booking details post from mobile app
         $appointment = new Appointments();
         $appointment->user_id = Auth::user()->id;
+        $appointment->doc_id = $request->get('doctor_id');
         $appointment->date = $request->get('date');
         $appointment->day = $request->get('day');
         $appointment->time = $request->get('time');
