@@ -8,6 +8,10 @@ Comandos executados...
 #php artisan serve --host 0.0.0.0 --port=8000 
 
 
+# php artisan make:model Appointments -m 
+
+# php artisan make:controller AppointmentsController --resource
+
 para corrigir o erro de não exibir as fotos 
 Deleting the shortcut folder storage created at /project/public/
 run php artisan storage:link
