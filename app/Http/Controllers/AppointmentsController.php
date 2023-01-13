@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Appointments;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,22 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-        //
+        //retrieve all appointments from the user
+        $appointment = Appointments::where('user_id', Auth::user()->id)->get();
+        $doctor = User::where('type', 'doctor')->get();
+        //sorting appointment and doctor details
+        //and get all related appointment
+        foreach ($appointment as $data) {
+            foreach ($doctor as $info) {
+                $details = $info->doctor;
+                if ($data['doc_id'] == $info['id']) {
+                    $data['doctor_name'] = $info['name'];
+                    $data['doctor_profile'] = $info['profile_photo_url'];
+                    $data['category'] = $details['category'];
+                }
+            }
+        }
+        return $appointment;
     }
 
     /**
@@ -46,10 +62,10 @@ class AppointmentsController extends Controller
         $appointment->time = $request->get('time');
         $appointment->status = 'upcoming';
         $appointment->save();
-        
+
         return response()->json([
-            'success'=>'O agendamento foi realizado com sucesso. Aguarde confirmação!',
-        ],200);
+            'success' => 'O agendamento foi realizado com sucesso. Aguarde confirmação!',
+        ], 200);
     }
 
     /**
