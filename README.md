@@ -1,5 +1,7 @@
 Comandos executados...
 
+#php artisan make:controller DocsController --resource
+
 #php artisan storage:link  
 
 #php artisan make:controller UsersController --resource
