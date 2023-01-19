@@ -27,7 +27,7 @@ class UsersController extends Controller
         $doctorData = Doctor::all();
         //return today appointment together with a user data
         $date = now()->format('n/j/Y');
-        $appointment = Appointments::where('date',$date)->first();
+        $appointment = Appointments::where('status','upcoming')->where('date',$date)->first();
         //collect user data and all doctor details
         foreach($doctorData as $data)
         {
