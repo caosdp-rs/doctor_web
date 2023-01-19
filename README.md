@@ -1,5 +1,7 @@
 Comandos executados...
 
+#php artisan make:model Reviews -m
+
 #php artisan make:controller DocsController --resource
 
 #php artisan storage:link  

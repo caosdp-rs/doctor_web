@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
         }
         
         $this->call(DoctorsTableSeeder::class);
+        $this->call(ReviewsSeeder::class);
     }
 }
         
